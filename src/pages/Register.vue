@@ -1,6 +1,6 @@
 <template>
     <div class="login-container">
-        <h1>Register</h1>
+        <img class="logo" src="../assets/logo-ipda.png" alt="">
         <form @submit.prevent="register">
             <div class="form-group">
                 <label for="username">Username:</label>
@@ -22,6 +22,8 @@
                 <button type="submit">Register</button>
             </div>
             <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
+            <p>  Already have an acount ? </p>
+            <RouterLink to="/"> Login</RouterLink>
         </form>
     </div>
 </template>
@@ -73,7 +75,9 @@ body {
     width: 300px;
     text-align: center;
 }
-
+.logo {
+    max-width: 100%;
+}
 h1 {
     margin-bottom: 20px;
 }

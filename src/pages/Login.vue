@@ -1,26 +1,33 @@
 <template>
     <div class="login-container">
-        <h1>Login</h1>
-        <form @submit.prevent="login">
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" v-model="username" required />
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" v-model="password" required />
-            </div>
-            <div class="form-group">
-                <button type="submit">Login</button>
-            </div>
-            <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
-        </form>
+        <img class="login-img" src="../assets/login-page-img.jpg" alt="">
+        <div class="">
+            <img class="logo" src="../assets/logo-ipda.png" alt="">
+            <form @submit.prevent="login">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" v-model="username" required />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" v-model="password" required />
+                </div>
+                <div class="form-group">
+                    <button type="submit">Login</button>
+                </div>
+                <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
+                <p>Dont you have an account ? </p>
+                <RouterLink to="register"> Register</RouterLink>
+            </form>
+        </div>
+
+
     </div>
 </template>
   
 <script setup>
 import { ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { RouterLink, useRouter } from 'vue-router';
 
 const username = ref('');
 const password = ref('');
@@ -45,24 +52,34 @@ const login = () => {
 </script>
   
 <style scoped>
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
 
 .login-container {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+   
+    min-width: 1280px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
 }
+
+.login-img {
+    max-width: 100%;
+    border-radius: 15px;
+
+
+}
+
+.logo {
+    min-width: 320px;
+}
+
+
 
 h1 {
     margin-bottom: 20px;
